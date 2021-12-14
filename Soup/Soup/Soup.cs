@@ -13,7 +13,6 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -24,7 +23,7 @@ namespace Soup
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class PrimordialSoup : Microsoft.Xna.Framework.Game
+    public class PrimordialSoup : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -45,6 +44,9 @@ namespace Soup
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
         }
 
         /// <summary>
@@ -103,19 +105,19 @@ namespace Soup
             if (keyState.IsKeyDown(Keys.Escape))
             {
                 // save all logs
-                for (int i = 0; i < primordialSoup.logger.Count; i++)
-                {
-                    StreamWriter sw = new StreamWriter(@"c:\temp\alife\" + i.ToString() + ".txt", false);
-                    sw.WriteLine("Timer\tRadius\tGrowth\tDistance\tMonomers");
-                    for (int j = 0; j < primordialSoup.logger[i].logs.Count; j++)
-                        sw.WriteLine(
-                            primordialSoup.logger[i].logs[j].lifeTimer + "\t" +
-                            primordialSoup.logger[i].logs[j].radius + "\t" + 
-                            primordialSoup.logger[i].logs[j].volumeGrowth + "\t" +
-                            primordialSoup.logger[i].logs[j].distanceTravelled + "\t" +
-                            primordialSoup.logger[i].logs[j].numberofMonomersEaten);
-                    sw.Close();
-                }
+                //for (int i = 0; i < primordialSoup.logger.Count; i++)
+                //{
+                //    StreamWriter sw = new StreamWriter(@"c:\temp\alife\" + i.ToString() + ".txt", false);
+                //    sw.WriteLine("Timer\tRadius\tGrowth\tDistance\tMonomers");
+                //    for (int j = 0; j < primordialSoup.logger[i].logs.Count; j++)
+                //        sw.WriteLine(
+                //            primordialSoup.logger[i].logs[j].lifeTimer + "\t" +
+                //            primordialSoup.logger[i].logs[j].radius + "\t" + 
+                //            primordialSoup.logger[i].logs[j].volumeGrowth + "\t" +
+                //            primordialSoup.logger[i].logs[j].distanceTravelled + "\t" +
+                //            primordialSoup.logger[i].logs[j].numberofMonomersEaten);
+                //    sw.Close();
+                //}
 
                 this.Exit();
             }

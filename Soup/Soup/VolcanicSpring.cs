@@ -129,8 +129,8 @@ namespace Soup
 
         public Environment(int numObjects, GraphicsDevice graphicsDevice, ContentManager Content, SpriteFont font)
         {
-            texVesicle = Content.Load<Texture2D>("Sprites/bubble");
-            texMonomer = Content.Load<Texture2D>("Sprites/monomer");
+            texVesicle = Content.Load<Texture2D>("bubble");
+            texMonomer = Content.Load<Texture2D>("monomer");
             sf = font;
 
             // initialize partitions 10x8 (change this if needed)

@@ -8,24 +8,19 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using System.IO;
+using Environment = ChemoTaxis.Soup.Environment;
 
-namespace Soup
+namespace ChemoTaxis.Soup
 {
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class PrimordialSoup : Game
     {
-        GraphicsDeviceManager graphics;
+        readonly GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Random rand = new Random();
         SpriteFont Soupfont;
@@ -141,7 +136,7 @@ namespace Soup
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             primordialSoup.Draw(spriteBatch);
 
-            foreach (FloatingObject f in primordialSoup.floatingObjects)
+            foreach (FloatingObject f in primordialSoup.FloatingObjects)
                 if (f.type == FType.VESICLE && f.vRadius > 30.0f)            // large vesicles
                 {
                     spriteBatch.DrawString(Soupfont, (f.ID + " " + f.log.lifeTimer + "\n" + f.log.distanceTravelled + "\n" +
